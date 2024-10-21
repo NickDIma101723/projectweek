@@ -2,39 +2,35 @@
 
 body,
 html {
-  margin: auto;
+  margin: 0;
   padding: 0;
   width: auto;
-  font-family: "Poppins", Arial, Helvetica, sans-serif; /* Changed font to Poppins */
-  background: linear-gradient(270deg, #34332b, #1c1c1e);
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  background: linear-gradient(270deg, #c65d0e, #e77d1f);
   background-size: 400% 400%;
   animation: gradientAnimation 17s ease infinite;
-  color: #ffffff; /* Text color */
+  color: #ffffff;
+  overflow-y: auto;
 }
 
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
   }
-
   50% {
     background-position: 100% 50%;
   }
-
   100% {
     background-position: 0% 50%;
   }
 }
 
-/* Header */
 header {
-  background-color: #3a3a3ab3; /* Transparent background */
-  backdrop-filter: blur(10px); /* Blur effect */
-  padding: 15px;
-}
-
-header h1 {
-  font-size: auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
 }
 
 nav {
@@ -44,67 +40,35 @@ nav {
 }
 
 nav a {
-  color: #ffffff; /* Link color */
+  color: #ffffff;
   text-decoration: none;
-  font-size: 18px;
-}
-
-nav .logo {
+  font-size: 24px;
   position: relative;
-  left: 15px;
-  width: 30px;
-  height: 30px;
+  padding: 10px;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #ffd700;
 }
 
-/* Main */
+.game-title {
+  text-align: center;
+  font-size: 50px;
+  color: #ffffff;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
 .content {
   display: flex;
   justify-content: space-between;
   padding: 50px;
 }
 
-.side-section {
-  width: 35%;
-  text-align: right;
+.main-section {
+  flex: 1;
 }
 
-.side-section h1 {
-  font-size: 55px;
-  font-weight: bold;
-  color: #f2f2f2; /* Main section title color */
-  text-align: right;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glow effect */
-  margin: 0;
-}
-
-.side-section h2 {
-  font-size: 48px;
-  color: #00a3e0; /* Changed to a lighter blue color */
-  margin-right: 10px;
-  position: relative;
-  top: -20px;
-  text-shadow: 0 0 10px #00a3e0cc; /* Glow effect */
-  margin: 0;
-}
-
-.side-section hr {
-  border: 1px solid #fff; /* Line color */
-  margin: 10px 0;
-  margin-left: auto;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  width: 55%;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glow effect */
-}
-
-.side-section .header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  width: 100%;
-}
-
-/* Item Styles */
 .item {
   display: flex;
   align-items: center;
@@ -115,6 +79,8 @@ nav .logo {
   max-width: 500px;
   margin-right: 20px;
   margin-top: 10px;
+  border: 5px solid #ffd700;
+  border-radius: 10px;
 }
 
 .text-content {
@@ -123,37 +89,24 @@ nav .logo {
 }
 
 .text-content h2 {
-  font-size: 24px;
-  color: #00a3e0; /* Changed to a lighter blue color */
+  font-size: 28px;
+  color: #ffcc00;
 }
 
 .text-content h3 {
-  font-size: 22px;
-  color: #ffffff; /* Subheading color */
+  font-size: 24px;
+  color: #ffffff;
   margin: 5px 0;
 }
 
 .text-content p {
-  font-size: 16px;
-  color: #c1c1c1; /* Paragraph color */
+  font-size: 18px;
+  color: #f0f0f0;
 }
 
-/* Footer */
 .footer-line {
-  border: 1px solid #fff; /* Line color */
-  margin: 10px 0;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  border: 2px solid #ffd700;
+  margin: 20px 0;
   width: auto;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glow effect */
-}
-
-.game-title {
-  text-align: right;
-  margin-right: 50px;
-  font-size: 40px;
-  color: white; /* Title color */
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glow effect */
+  opacity: 0.8;
 }

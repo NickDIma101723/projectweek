@@ -1,54 +1,76 @@
-const items = document.querySelectorAll(".slider .list .item");
-const thumbnails = document.querySelectorAll(".thumbnail .item");
-let itemActive = 0;
+document.addEventListener("DOMContentLoaded", function () {
+  const urls = ["index2.html", "index.html", "gameplay.html"];
 
-const backgroundAudio = document.getElementById("myAudio");
-const clickAudio = document.getElementById("myAudio1");
+  let currentIndex = parseInt(localStorage.getItem("currentIndex")) || 0;
 
-document.getElementById("next").onclick = () => changeSlide(1);
-document.getElementById("prev").onclick = () => changeSlide(-1);
+  const switchPage = (index) => {
+    currentIndex = (index + urls.length) % urls.length;
+    localStorage.setItem("currentIndex", currentIndex);
 
-thumbnails.forEach((thumbnail, index) => {
-  thumbnail.onclick = () => {
-    itemActive = index;
-    showSlider();
+    const backgroundAudio = document.getElementById("myAudio");
+    backgroundAudio.muted = false;
+    backgroundAudio.currentTime = 0;
+    backgroundAudio.play();
+
+    window.location.href = urls[currentIndex];
   };
-});
 
-let refreshInterval = setInterval(() => changeSlide(1), 10000);
-
-function changeSlide(direction) {
-  itemActive = (itemActive + direction + items.length) % items.length;
-  showSlider();
-}
-
-function showSlider() {
-  items.forEach((item, index) => {
-    item.classList.toggle("active", index === itemActive);
-  });
-  thumbnails.forEach((thumb, index) => {
-    thumb.classList.toggle("active", index === itemActive);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowRight") {
+      switchPage(currentIndex + 1);
+    } else if (event.key === "ArrowLeft") {
+      switchPage(currentIndex - 1);
+    }
   });
 
-  clearInterval(refreshInterval);
-  refreshInterval = setInterval(() => changeSlide(1), 5000);
-}
+  const backgroundAudio = document.getElementById("myAudio");
+  const clickAudio = document.getElementById("myAudio1");
 
-document.addEventListener("click", function () {
-  backgroundAudio.muted = false;
-  backgroundAudio.play();
-  backgroundAudio.volume = 0.3;
-});
+  document.addEventListener("click", function () {
+    if (backgroundAudio.paused) {
+      backgroundAudio.muted = false;
+      backgroundAudio.play();
+      backgroundAudio.volume = 0.3;
+    }
+  });
 
-function playClickAudio() {
-  clickAudio.currentTime = 0;
-  clickAudio.play();
-}
+  const items = document.querySelectorAll(".slider .list .item");
+  const thumbnails = document.querySelectorAll(".thumbnail .item");
+  let itemActive = 0;
 
-document.getElementById("next").addEventListener("click", () => {
-  playClickAudio();
-});
+  document.getElementById("next").onclick = () => {
+    changeSlide(1);
+    playClickAudio();
+  };
 
-document.getElementById("prev").addEventListener("click", () => {
-  playClickAudio();
+  document.getElementById("prev").onclick = () => {
+    changeSlide(-1);
+    playClickAudio();
+  };
+
+  thumbnails.forEach((thumbnail, index) => {
+    thumbnail.onclick = () => {
+      itemActive = index;
+      showSlider();
+    };
+  });
+
+  function changeSlide(direction) {
+    itemActive = (itemActive + direction + items.length) % items.length;
+    showSlider();
+  }
+
+  function showSlider() {
+    items.forEach((item, index) => {
+      item.classList.toggle("active", index === itemActive);
+    });
+    thumbnails.forEach((thumb, index) => {
+      thumb.classList.toggle("active", index === itemActive);
+    });
+  }
+
+  function playClickAudio() {
+    clickAudio.currentTime = 0;
+    clickAudio.play();
+  }
 });

@@ -1,11 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+/* Ensure global styles apply across both */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif; /* Maintaining Roboto globally */
+}
+
+:root {
+  --bg-color: #1b4f1e;
+  --text-color: #ffffff;
+  --main-color: #ff8f00;
+  --accent-color: #ffda44;
+  --secondary-accent: #c62828;
+  --big-font: 6.6rem;
+  --p-font: 1rem;
+}
 
 body,
 html {
   margin: 0;
   padding: 0;
   width: auto;
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif; /* For this section */
   background: linear-gradient(270deg, #c65d0e, #e77d1f);
   background-size: 400% 400%;
   animation: gradientAnimation 17s ease infinite;
@@ -26,29 +43,41 @@ html {
 }
 
 header {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 20px 50px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  margin-bottom: 20px;
+  position: fixed; /* Ensures the navbar stays at the top */
+  top: 0; /* Aligns it to the top of the viewport */
+  width: 100%; /* Makes it full-width */
+  z-index: 1000; /* Ensures it stays above other content */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Transparent background with blur */
+  backdrop-filter: blur(10px); /* Adds blur effect */
+  padding: 20px 50px; /* Adjust as needed */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Gives it a shadow */
 }
 
 nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  flex-grow: 1;
 }
 
 nav a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 24px; /* Keeping font size consistent */
+  padding: 10px 15px; /* Padding to match original */
   position: relative;
-  padding: 10px;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
+
 nav a:hover {
-  color: #ffd700;
+  color: #ffd700; /* Same hover effect */
+  background-color: var(--secondary-accent); /* Optional background on hover */
+  border-radius: 5px; /* Smooth border effect */
 }
 
 .game-title {
@@ -62,7 +91,7 @@ nav a:hover {
 .content {
   display: flex;
   justify-content: space-between;
-  padding: 50px;
+  padding: 160px;
 }
 
 .main-section {

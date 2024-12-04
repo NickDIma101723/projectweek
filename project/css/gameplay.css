@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;300;400;500;700;900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif; /
+}
+
+:root {
+  --bg-color: #1b4f1e;
+  --text-color: #ffffff;
+  --main-color: #ff8f00;
+  --accent-color: #ffda44;
+  --secondary-accent: #c62828;
+  --big-font: 6.6rem;
+  --p-font: 1rem;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  font-family: "Poppins", Arial, Helvetica, sans-serif; 
+  background: linear-gradient(270deg, #c65d0e, #e77d1f);
+  background-size: 400% 400%;
+  animation: gradientAnimation 17s ease infinite;
+  color: #ffffff;
+  overflow-y: auto;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+header {
+  position: fixed; 
+  top: 0;
+  width: 100%;
+  z-index: 1000; 
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); 
+  backdrop-filter: blur(10px); 
+  padding: 20px 50px; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 24px; 
+  padding: 10px 15px; 
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffd700; 
+  background-color:  #c62828;
+  border-radius: 5px; 
+}
+
+.game-title {
+  text-align: center;
+  font-size: 50px;
+  color: #ffffff;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 160px;
+}
+
+.main-section {
+  flex: 1;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item video {
+  width: auto;
+  max-width: 500px;
+  margin-right: 20px;
+  margin-top: 10px;
+  border: 5px solid #ffd700;
+  border-radius: 10px;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-content h2 {
+  font-size: 28px;
+  color: #ffcc00;
+}
+
+.text-content h3 {
+  font-size: 24px;
+  color: #ffffff;
+  margin: 5px 0;
+}
+
+.text-content p {
+  font-size: 18px;
+  color: #f0f0f0;
+}
+
+.footer-line {
+  border: 2px solid #ffd700;
+  margin: 20px 0;
+  width: auto;
+  opacity: 0.8;
+}
